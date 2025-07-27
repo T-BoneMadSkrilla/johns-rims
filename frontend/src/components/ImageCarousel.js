@@ -1,6 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const ImageCarousel = ({ images = [], title = "Product Images" }) => {
+const ImageCarousel = ({ 
+  images = [], 
+  title = "Product Images",
+  height = "h-64",
+  showThumbnails = true,
+  showCounter = true,
+  showArrows = true
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -14,24 +21,28 @@ const ImageCarousel = ({ images = [], title = "Product Images" }) => {
     { src: null, alt: "Product Image 3" }
   ];
 
-  const nextSlide = () => {
+  const nextSlide = (e) => {
+    if (e) e.stopPropagation();
     setCurrentIndex((prevIndex) => 
       prevIndex === displayImages.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  const prevSlide = () => {
+  const prevSlide = (e) => {
+    if (e) e.stopPropagation();
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? displayImages.length - 1 : prevIndex - 1
     );
   };
 
-  const goToSlide = (index) => {
+  const goToSlide = (index, e) => {
+    if (e) e.stopPropagation();
     setCurrentIndex(index);
   };
 
   // Touch/Swipe handlers
   const handleTouchStart = (e) => {
+    e.stopPropagation();
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
   };
@@ -43,15 +54,16 @@ const ImageCarousel = ({ images = [], title = "Product Images" }) => {
     setTranslateX(-diff);
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e) => {
+    e.stopPropagation();
     setIsDragging(false);
     const threshold = 50;
     
     if (Math.abs(translateX) > threshold) {
       if (translateX > 0) {
-        nextSlide();
+        nextSlide(e);
       } else {
-        prevSlide();
+        prevSlide(e);
       }
     }
     
@@ -62,9 +74,9 @@ const ImageCarousel = ({ images = [], title = "Product Images" }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowLeft') {
-        prevSlide();
+        prevSlide(e);
       } else if (e.key === 'ArrowRight') {
-        nextSlide();
+        nextSlide(e);
       }
     };
 
@@ -73,11 +85,11 @@ const ImageCarousel = ({ images = [], title = "Product Images" }) => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className={`relative ${height}`}>
       {/* Main Image Display */}
       <div 
         ref={carouselRef}
-        className="relative h-96 bg-gray-300 rounded-lg overflow-hidden"
+        className={`relative h-full bg-gray-300 overflow-hidden ${height === 'h-64' ? 'rounded-lg' : ''}`}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -107,61 +119,67 @@ const ImageCarousel = ({ images = [], title = "Product Images" }) => {
           </div>
         ))}
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity"
-          aria-label="Previous image"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity"
-          aria-label="Next image"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
-        {/* Image Counter */}
-        <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
-          {currentIndex + 1} / {displayImages.length}
-        </div>
-      </div>
-
-      {/* Thumbnail Navigation */}
-      {displayImages.length > 1 && (
-        <div className="mt-4 flex justify-center space-x-2">
-          {displayImages.map((image, index) => (
+        {/* Navigation Arrows - Show if multiple images and arrows enabled */}
+        {displayImages.length > 1 && showArrows && (
+          <>
             <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                index === currentIndex 
-                  ? 'border-blue-600 scale-110' 
-                  : 'border-gray-300 hover:border-gray-400'
-              }`}
+              onClick={prevSlide}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1 rounded-full hover:bg-opacity-75 transition-opacity z-10"
+              aria-label="Previous image"
             >
-              {image.src ? (
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-500 text-xs">{index + 1}</span>
-                </div>
-              )}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
             </button>
-          ))}
-        </div>
-      )}
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1 rounded-full hover:bg-opacity-75 transition-opacity z-10"
+              aria-label="Next image"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Image Counter */}
+            {showCounter && (
+              <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full text-xs z-10">
+                {currentIndex + 1} / {displayImages.length}
+              </div>
+            )}
+
+            {/* Thumbnail Navigation - Show if enabled and multiple images */}
+            {showThumbnails && (
+              <div className="absolute bottom-2 left-2 flex space-x-1 z-10">
+                {displayImages.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={(e) => goToSlide(index, e)}
+                    className={`w-8 h-8 rounded overflow-hidden border-2 transition-all ${
+                      index === currentIndex 
+                        ? 'border-white scale-110' 
+                        : 'border-gray-300 hover:border-gray-400'
+                    }`}
+                  >
+                    {image.src ? (
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span className="text-gray-500 text-xs">{index + 1}</span>
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

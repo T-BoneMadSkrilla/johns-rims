@@ -1,10 +1,11 @@
 import React from 'react';
+import ImageCarousel from './ImageCarousel';
 
 const ProductCard = ({ 
   title, 
   description, 
   price, 
-  image, 
+  images = [], 
   features = [], 
   onClick,
   showAddToCart = false,
@@ -15,12 +16,8 @@ const ProductCard = ({
       className={`bg-white rounded-lg shadow-lg overflow-hidden ${onClick ? 'cursor-pointer hover:shadow-xl transition-shadow duration-300' : ''}`}
       onClick={onClick}
     >
-      <div className="h-64 bg-gray-300 flex items-center justify-center">
-        {image ? (
-          <img src={image} alt={title} className="w-full h-full object-cover" />
-        ) : (
-          <span className="text-gray-500 text-lg">Product Image</span>
-        )}
+      <div className="h-64">
+        <ImageCarousel images={images} />
       </div>
       <div className="p-6">
         <h3 className="text-2xl font-semibold mb-2">{title}</h3>

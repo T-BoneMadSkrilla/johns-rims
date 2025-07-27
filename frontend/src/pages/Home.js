@@ -1,14 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ImageCarousel from '../components/ImageCarousel';
 
 const Home = () => {
+  const heroImages = [
+    { src: null, alt: "F-250 with Classic Steel Rims" },
+    { src: null, alt: "Retro Alloy Wheels on Truck" },
+    { src: null, alt: "Classic 90s Style Rims" },
+    { src: null, alt: "Premium Quality Wheels" }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-gray-900 to-gray-700 text-white">
-        <div className="max-w-6xl mx-auto px-4 py-20">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Classic Style, Modern Performance</h1>
-            <p className="text-xl mb-8 text-gray-300">
+      {/* Hero Section with Carousel */}
+      <div className="relative">
+        <div className="h-96 md:h-[500px] lg:h-[600px]">
+          <ImageCarousel 
+            images={heroImages} 
+            height="h-96 md:h-[500px] lg:h-[600px]"
+            showThumbnails={false}
+            showCounter={true}
+            showArrows={true}
+          />
+        </div>
+        
+        {/* Hero Content Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <div className="text-center text-white max-w-4xl mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+              Classic Style, Modern Performance
+            </h1>
+            <p className="text-lg md:text-xl mb-8 text-gray-200">
               Custom rims for your F-250 that bring back the iconic 90s look
             </p>
             <Link
@@ -20,6 +42,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Features Section */}
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center p-6">

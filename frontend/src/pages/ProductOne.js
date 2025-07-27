@@ -9,6 +9,11 @@ const ProductOne = () => {
     title: "Classic Steel Rims",
     description: "Authentic 90s steel rim design with modern durability. Perfect for that classic truck look that never goes out of style. These rims combine the nostalgic appeal of the 90s with contemporary engineering standards.",
     price: "$299",
+    images: [
+      { src: null, alt: "Classic Steel Rims - Front View" },
+      { src: null, alt: "Classic Steel Rims - Side View" },
+      { src: null, alt: "Classic Steel Rims - Installed on Truck" }
+    ],
     features: [
       "Authentic 90s design aesthetic",
       "Heavy-duty steel construction",
@@ -51,6 +56,7 @@ const ProductOne = () => {
               title={productData.title}
               description={productData.description}
               price={productData.price}
+              images={productData.images}
               features={productData.features}
               onAddToCart={handleAddToCart}
               showAddToCart={true}

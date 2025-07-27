@@ -9,6 +9,12 @@ const ProductTwo = () => {
     title: "Retro Alloy Wheels",
     description: "Lightweight alloy construction with vintage styling. Enhanced performance meets classic aesthetics. These wheels offer the perfect blend of modern engineering and retro design, providing both style and substance for your F-250.",
     price: "$449",
+    images: [
+      { src: null, alt: "Retro Alloy Wheels - Front View" },
+      { src: null, alt: "Retro Alloy Wheels - Side View" },
+      { src: null, alt: "Retro Alloy Wheels - Installed on Truck" },
+      { src: null, alt: "Retro Alloy Wheels - Close-up Detail" }
+    ],
     features: [
       "Lightweight alloy construction",
       "Vintage-inspired design",
@@ -51,6 +57,7 @@ const ProductTwo = () => {
               title={productData.title}
               description={productData.description}
               price={productData.price}
+              images={productData.images}
               features={productData.features}
               onAddToCart={handleAddToCart}
               showAddToCart={true}

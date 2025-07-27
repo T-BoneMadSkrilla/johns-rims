@@ -12,6 +12,10 @@ const Products = () => {
       title: "Classic Steel Rims",
       description: "Authentic 90s steel rim design with modern durability. Perfect for that classic truck look.",
       price: "$299",
+      images: [
+        { src: null, alt: "Classic Steel Rims - Front View" },
+        { src: null, alt: "Classic Steel Rims - Side View" }
+      ],
       features: [
         "Authentic 90s design aesthetic",
         "Heavy-duty steel construction",
@@ -25,6 +29,10 @@ const Products = () => {
       title: "Retro Alloy Wheels",
       description: "Lightweight alloy construction with vintage styling. Enhanced performance meets classic aesthetics.",
       price: "$449",
+      images: [
+        { src: null, alt: "Retro Alloy Wheels - Front View" },
+        { src: null, alt: "Retro Alloy Wheels - Side View" }
+      ],
       features: [
         "Lightweight alloy construction",
         "Vintage-inspired design",
@@ -51,6 +59,7 @@ const Products = () => {
                 title={product.title}
                 description={product.description}
                 price={product.price}
+                images={product.images}
                 features={product.features}
                 onClick={() => handleCardClick(product.link)}
                 showAddToCart={false}
