@@ -1,55 +1,66 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import ProductCard from '../components/ProductCard';
+import CompatibilityNotice from '../components/CompatibilityNotice';
 
 const Products = () => {
+  const navigate = useNavigate();
+
+  const products = [
+    {
+      id: 1,
+      title: "Classic Steel Rims",
+      description: "Authentic 90s steel rim design with modern durability. Perfect for that classic truck look.",
+      price: "$299",
+      features: [
+        "Authentic 90s design aesthetic",
+        "Heavy-duty steel construction",
+        "Corrosion-resistant finish",
+        "Perfect fit for newer F-250 trucks"
+      ],
+      link: "/products/classic-steel-rims"
+    },
+    {
+      id: 2,
+      title: "Retro Alloy Wheels",
+      description: "Lightweight alloy construction with vintage styling. Enhanced performance meets classic aesthetics.",
+      price: "$449",
+      features: [
+        "Lightweight alloy construction",
+        "Vintage-inspired design",
+        "Enhanced performance characteristics",
+        "Perfect fit for newer F-250 trucks"
+      ],
+      link: "/products/retro-alloy-wheels"
+    }
+  ];
+
+  const handleCardClick = (link) => {
+    navigate(link);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold text-center mb-12">Our Products</h1>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="h-64 bg-gray-300 flex items-center justify-center">
-              <span className="text-gray-500 text-lg">Product Image</span>
+          {products.map((product) => (
+            <div key={product.id}>
+              <ProductCard
+                title={product.title}
+                description={product.description}
+                price={product.price}
+                features={product.features}
+                onClick={() => handleCardClick(product.link)}
+                showAddToCart={false}
+              />
             </div>
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold mb-2">Classic Steel Rims</h3>
-              <p className="text-gray-600 mb-4">
-                Authentic 90s steel rim design with modern durability. Perfect for that classic truck look.
-              </p>
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-3xl font-bold text-blue-600">$299</span>
-                <span className="text-sm text-gray-500">Set of 4</span>
-              </div>
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="h-64 bg-gray-300 flex items-center justify-center">
-              <span className="text-gray-500 text-lg">Product Image</span>
-            </div>
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold mb-2">Retro Alloy Wheels</h3>
-              <p className="text-gray-600 mb-4">
-                Lightweight alloy construction with vintage styling. Enhanced performance meets classic aesthetics.
-              </p>
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-3xl font-bold text-blue-600">$449</span>
-                <span className="text-sm text-gray-500">Set of 4</span>
-              </div>
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
-                Add to Cart
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
-        <div className="mt-12 bg-yellow-50 border border-yellow-200 rounded-lg p-6 max-w-2xl mx-auto">
-          <h4 className="font-semibold text-yellow-800 mb-2">Compatibility Check</h4>
-          <p className="text-yellow-700">
-            These rims are designed for newer F-250 trucks. Please verify your truck's specifications before ordering.
-            Contact us if you need help with fitment.
-          </p>
+        
+        <div className="mt-12">
+          <CompatibilityNotice />
         </div>
       </div>
     </div>
