@@ -14,7 +14,6 @@ const ImageCarousel = ({
   const [translateX, setTranslateX] = useState(0);
   const carouselRef = useRef(null);
 
-  // If no images provided, show placeholder
   const displayImages = images.length > 0 ? images : [
     { src: null, alt: "Product Image 1" },
     { src: null, alt: "Product Image 2" },
@@ -40,7 +39,6 @@ const ImageCarousel = ({
     setCurrentIndex(index);
   };
 
-  // Touch/Swipe handlers
   const handleTouchStart = (e) => {
     e.stopPropagation();
     setIsDragging(true);
@@ -70,7 +68,6 @@ const ImageCarousel = ({
     setTranslateX(0);
   };
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowLeft') {
@@ -86,7 +83,6 @@ const ImageCarousel = ({
 
   return (
     <div className={`relative ${height}`}>
-      {/* Main Image Display */}
       <div 
         ref={carouselRef}
         className={`relative h-full bg-gray-300 overflow-hidden ${height === 'h-64' ? 'rounded-lg' : ''}`}
@@ -119,7 +115,6 @@ const ImageCarousel = ({
           </div>
         ))}
 
-        {/* Navigation Arrows - Show if multiple images and arrows enabled */}
         {displayImages.length > 1 && showArrows && (
           <>
             <button
@@ -142,14 +137,12 @@ const ImageCarousel = ({
               </svg>
             </button>
 
-            {/* Image Counter */}
             {showCounter && (
               <div className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full text-xs z-10">
                 {currentIndex + 1} / {displayImages.length}
               </div>
             )}
 
-            {/* Thumbnail Navigation - Show if enabled and multiple images */}
             {showThumbnails && (
               <div className="absolute bottom-2 left-2 flex space-x-1 z-10">
                 {displayImages.map((image, index) => (

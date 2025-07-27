@@ -12,7 +12,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section with Carousel */}
       <div className="relative">
         <div className="h-96 md:h-[500px] lg:h-[600px]">
           <ImageCarousel 
@@ -24,10 +23,9 @@ const Home = () => {
           />
         </div>
         
-        {/* Hero Content Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Classic Style, Modern Performance
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-200">
@@ -43,7 +41,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Features Section */}
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center p-6">
