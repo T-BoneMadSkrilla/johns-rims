@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import CompatibilityNotice from '../components/CompatibilityNotice';
 import ProductSpecs from '../components/ProductSpecs';
+import { useCart } from '../components/CartContext';
 
 const ProductTwo = () => {
+  const { addToCart } = useCart();
+
   const productData = {
+    id: 2,
     title: "Retro Alloy Wheels",
     description: "Lightweight alloy construction with vintage styling. Enhanced performance meets classic aesthetics. These wheels offer the perfect blend of modern engineering and retro design, providing both style and substance for your F-250.",
     price: "$449",
@@ -36,8 +40,7 @@ const ProductTwo = () => {
   };
 
   const handleAddToCart = () => {
-    // TODO: Implement cart functionality
-    console.log('Added Retro Alloy Wheels to cart');
+    addToCart(productData);
   };
 
   return (
@@ -76,7 +79,7 @@ const ProductTwo = () => {
             {/* Specifications */}
             <ProductSpecs specs={productData.specs} />
 
-            {/* Additional Information */}
+            
             <div className="bg-white rounded-lg p-6">
               <h3 className="text-xl font-semibold mb-4">Why Choose Retro Alloy Wheels?</h3>
               <div className="space-y-3">
@@ -101,7 +104,6 @@ const ProductTwo = () => {
           </div>
         </div>
 
-        {/* Compatibility Notice */}
         <div className="mt-12">
           <CompatibilityNotice />
         </div>

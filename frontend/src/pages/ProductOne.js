@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import CompatibilityNotice from '../components/CompatibilityNotice';
 import ProductSpecs from '../components/ProductSpecs';
+import { useCart } from '../components/CartContext';
 
 const ProductOne = () => {
+  const { addToCart } = useCart();
+
   const productData = {
+    id: 1,
     title: "Classic Steel Rims",
     description: "Authentic 90s steel rim design with modern durability. Perfect for that classic truck look that never goes out of style. These rims combine the nostalgic appeal of the 90s with contemporary engineering standards.",
     price: "$299",
@@ -35,8 +39,7 @@ const ProductOne = () => {
   };
 
   const handleAddToCart = () => {
-    // TODO: Implement cart functionality
-    console.log('Added Classic Steel Rims to cart');
+    addToCart(productData);
   };
 
   return (

@@ -36,7 +36,7 @@ const ProductCard = ({
         
         <div className="flex justify-between items-center mb-4">
           <span className="text-3xl font-bold text-blue-600">{price}</span>
-          <span className="text-sm text-gray-500">Set of 4</span>
+          <span className="text-sm text-gray-500"></span>
         </div>
         
         {showAddToCart && onAddToCart && (
