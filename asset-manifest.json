@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/johns-rims/static/css/main.cf890fdb.css",
-    "main.js": "/johns-rims/static/js/main.bbb6d27a.js",
+    "main.css": "/johns-rims/static/css/main.682d1baf.css",
+    "main.js": "/johns-rims/static/js/main.f0121369.js",
     "index.html": "/johns-rims/index.html",
-    "main.cf890fdb.css.map": "/johns-rims/static/css/main.cf890fdb.css.map",
-    "main.bbb6d27a.js.map": "/johns-rims/static/js/main.bbb6d27a.js.map"
+    "main.682d1baf.css.map": "/johns-rims/static/css/main.682d1baf.css.map",
+    "main.f0121369.js.map": "/johns-rims/static/js/main.f0121369.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf890fdb.css",
-    "static/js/main.bbb6d27a.js"
+    "static/css/main.682d1baf.css",
+    "static/js/main.f0121369.js"
   ]
 }
