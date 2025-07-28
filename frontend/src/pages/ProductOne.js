@@ -4,12 +4,15 @@ import ProductCard from '../components/ProductCard';
 import CompatibilityNotice from '../components/CompatibilityNotice';
 import ProductSpecs from '../components/ProductSpecs';
 import { useCart } from '../components/CartContext';
+import { useInventory } from '../components/InventoryContext';
 import modernTruckOne from '../images/modern_truck_one.jpg';
 import modernTruckTwo from '../images/modern_truck_two.jpg';
 import modernTruckThree from '../images/modern_truck_three.jpg';
 
 const ProductOne = () => {
   const { addToCart } = useCart();
+  const { getProductQuantity } = useInventory();
+  const currentQuantity = getProductQuantity(1);
 
   const productData = {
     id: 1,
@@ -73,6 +76,16 @@ const ProductOne = () => {
               <p className="text-gray-600 text-lg leading-relaxed">
                 {productData.description}
               </p>
+              
+              {/* Inventory Status */}
+              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium text-gray-700">Current Stock:</span>
+                  <span className={`text-lg font-bold ${currentQuantity > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                    {currentQuantity > 0 ? `${currentQuantity} in stock` : 'Out of stock'}
+                  </span>
+                </div>
+              </div>
             </div>
 
             <ProductSpecs specs={productData.specs} />
