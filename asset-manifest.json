@@ -1,15 +1,22 @@
 {
   "files": {
-    "main.css": "/johns-rims/static/css/main.ef17903e.css",
-    "main.js": "/johns-rims/static/js/main.9fed0bbd.js",
+    "main.css": "/johns-rims/static/css/main.4278b025.css",
+    "main.js": "/johns-rims/static/js/main.97abc554.js",
     "static/js/453.670e15c7.chunk.js": "/johns-rims/static/js/453.670e15c7.chunk.js",
+    "static/media/modern_truck_three.jpg": "/johns-rims/static/media/modern_truck_three.5a85a278202569c33e8d.jpg",
+    "static/media/old_truck_one.jpg": "/johns-rims/static/media/old_truck_one.08ed40b1af544df7e24b.jpg",
+    "static/media/modern_truck_two.jpg": "/johns-rims/static/media/modern_truck_two.afd89ed158431d1dada4.jpg",
+    "static/media/modern_truck_one.jpg": "/johns-rims/static/media/modern_truck_one.de3a922439de33c1d97b.jpg",
+    "static/media/single_wheel_three.jpeg": "/johns-rims/static/media/single_wheel_three.a139046c669fcef6dd0b.jpeg",
+    "static/media/single_wheel_two.jpeg": "/johns-rims/static/media/single_wheel_two.c40e13191f66d12247d7.jpeg",
+    "static/media/trinity_forged_wheel_co_logo.jpeg": "/johns-rims/static/media/trinity_forged_wheel_co_logo.221d875f2eaaf0dec6b6.jpeg",
     "index.html": "/johns-rims/index.html",
-    "main.ef17903e.css.map": "/johns-rims/static/css/main.ef17903e.css.map",
-    "main.9fed0bbd.js.map": "/johns-rims/static/js/main.9fed0bbd.js.map",
+    "main.4278b025.css.map": "/johns-rims/static/css/main.4278b025.css.map",
+    "main.97abc554.js.map": "/johns-rims/static/js/main.97abc554.js.map",
     "453.670e15c7.chunk.js.map": "/johns-rims/static/js/453.670e15c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef17903e.css",
-    "static/js/main.9fed0bbd.js"
+    "static/css/main.4278b025.css",
+    "static/js/main.97abc554.js"
   ]
 }
