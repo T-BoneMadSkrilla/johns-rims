@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (username === 'zubi' && password === 'zubilovesashely') {
+    if (username === 'zubi' && password === 'zubilovesashley') {
       // Store admin session (simple localStorage for now)
       localStorage.setItem('adminAuthenticated', 'true');
       navigate('/admin/dashboard');
