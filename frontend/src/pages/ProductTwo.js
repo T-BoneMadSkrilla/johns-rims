@@ -4,6 +4,9 @@ import ProductCard from '../components/ProductCard';
 import CompatibilityNotice from '../components/CompatibilityNotice';
 import ProductSpecs from '../components/ProductSpecs';
 import { useCart } from '../components/CartContext';
+import oldTruckOne from '../images/old_truck_one.jpg';
+import singleWheelTwo from '../images/single_wheel_two.jpeg';
+import singleWheelThree from '../images/single_wheel_three.jpeg';
 
 const ProductTwo = () => {
   const { addToCart } = useCart();
@@ -14,10 +17,9 @@ const ProductTwo = () => {
     description: "Lightweight alloy construction with vintage styling. Enhanced performance meets classic aesthetics. These wheels offer the perfect blend of modern engineering and retro design, providing both style and substance for your F-250.",
     price: "$449",
     images: [
-      { src: null, alt: "Retro Alloy Wheels - Front View" },
-      { src: null, alt: "Retro Alloy Wheels - Side View" },
-      { src: null, alt: "Retro Alloy Wheels - Installed on Truck" },
-      { src: null, alt: "Retro Alloy Wheels - Close-up Detail" }
+      { src: oldTruckOne, alt: "Retro Alloy Wheels - Front View" },
+      { src: singleWheelTwo, alt: "Retro Alloy Wheels - Side View" },
+      { src: singleWheelThree, alt: "Retro Alloy Wheels - Detail View" }
     ],
     features: [
       "Lightweight alloy construction",
@@ -47,7 +49,7 @@ const ProductTwo = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <nav className="mb-8">
-          <Link to="/products" className="text-blue-600 hover:text-blue-800">
+          <Link to="/products" className="text-theme-600 hover:text-theme-800">
             ← Back to Products
           </Link>
         </nav>
@@ -79,19 +81,19 @@ const ProductTwo = () => {
               <h3 className="text-xl font-semibold mb-4">Why Choose Retro Alloy Wheels?</h3>
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Lightweight design for improved performance</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Superior heat dissipation for better braking</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Retro styling with modern engineering</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Extended warranty for peace of mind</p>
                 </div>
               </div>

@@ -35,7 +35,7 @@ const ProductCard = ({
         )}
         
         <div className="flex justify-between items-center mb-4">
-          <span className="text-3xl font-bold text-blue-600">{price}</span>
+          <span className="text-3xl font-bold text-theme-600">{price}</span>
           <span className="text-sm text-gray-500">Set of 4</span>
         </div>
         
@@ -45,7 +45,7 @@ const ProductCard = ({
               e.stopPropagation();
               onAddToCart();
             }}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            className="w-full bg-theme-600 hover:bg-theme-700 text-white font-bold py-3 px-4 rounded-lg transition-colors"
           >
             Add to Cart
           </button>

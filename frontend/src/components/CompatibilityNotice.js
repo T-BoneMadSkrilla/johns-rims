@@ -2,12 +2,12 @@ import React from 'react';
 
 const CompatibilityNotice = ({ 
   title = "Compatibility Check", 
-  message = "These rims are designed for newer F-250 trucks. Please verify your truck's specifications before ordering. Contact us if you need help with fitment.",
+  message = "These wheels are designed for newer F-250 trucks. Please verify your truck's specifications before ordering. Contact us if you need help with fitment.",
   variant = "warning" 
 }) => {
   const variants = {
     warning: "bg-yellow-50 border-yellow-200 text-yellow-800",
-    info: "bg-blue-50 border-blue-200 text-blue-800",
+    info: "bg-theme-50 border-theme-200 text-theme-800",
     error: "bg-red-50 border-red-200 text-red-800",
     success: "bg-green-50 border-green-200 text-green-800"
   };

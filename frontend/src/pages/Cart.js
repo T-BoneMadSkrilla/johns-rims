@@ -14,7 +14,7 @@ const Cart = () => {
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <nav className="mb-8">
-            <Link to="/" className="text-blue-600 hover:text-blue-800">
+            <Link to="/" className="text-theme-600 hover:text-theme-800">
               ← Back to Home
             </Link>
           </nav>
@@ -27,7 +27,7 @@ const Cart = () => {
             </p>
             <Link
               to="/products"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg inline-block"
+              className="bg-theme-600 hover:bg-theme-700 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg inline-block"
             >
               Start Shopping
             </Link>
@@ -41,7 +41,7 @@ const Cart = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <nav className="mb-8">
-          <Link to="/" className="text-blue-600 hover:text-blue-800">
+          <Link to="/" className="text-theme-600 hover:text-theme-800">
             ← Back to Home
           </Link>
         </nav>
@@ -62,7 +62,7 @@ const Cart = () => {
                       <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                       <p className="text-gray-600 mb-2">{item.description}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-blue-600">{item.price}</span>
+                        <span className="text-2xl font-bold text-theme-600">{item.price}</span>
                         
                         <div className="flex items-center space-x-2">
                           <button
@@ -122,14 +122,14 @@ const Cart = () => {
                 <div className="border-t pt-4">
                   <div className="flex justify-between">
                     <span className="text-xl font-bold">Total</span>
-                    <span className="text-xl font-bold text-blue-600">${getTotalPrice().toFixed(2)}</span>
+                    <span className="text-xl font-bold text-theme-600">${getTotalPrice().toFixed(2)}</span>
                   </div>
                 </div>
               </div>
               
               <button
                 onClick={handleCheckout}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg"
+                className="w-full bg-theme-600 hover:bg-theme-700 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg"
               >
                 Proceed to Checkout
               </button>
@@ -137,7 +137,7 @@ const Cart = () => {
               <div className="mt-4 text-center">
                 <Link
                   to="/products"
-                  className="text-blue-600 hover:text-blue-800 font-medium"
+                  className="text-theme-600 hover:text-theme-800 font-medium"
                 >
                   Continue Shopping
                 </Link>

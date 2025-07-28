@@ -4,6 +4,9 @@ import ProductCard from '../components/ProductCard';
 import CompatibilityNotice from '../components/CompatibilityNotice';
 import ProductSpecs from '../components/ProductSpecs';
 import { useCart } from '../components/CartContext';
+import modernTruckOne from '../images/modern_truck_one.jpg';
+import modernTruckTwo from '../images/modern_truck_two.jpg';
+import modernTruckThree from '../images/modern_truck_three.jpg';
 
 const ProductOne = () => {
   const { addToCart } = useCart();
@@ -14,9 +17,9 @@ const ProductOne = () => {
     description: "Authentic 90s steel rim design with modern durability. Perfect for that classic truck look that never goes out of style. These rims combine the nostalgic appeal of the 90s with contemporary engineering standards.",
     price: "$299",
     images: [
-      { src: null, alt: "Classic Steel Rims - Front View" },
-      { src: null, alt: "Classic Steel Rims - Side View" },
-      { src: null, alt: "Classic Steel Rims - Installed on Truck" }
+      { src: modernTruckOne, alt: "Classic Steel Rims - Front View" },
+      { src: modernTruckTwo, alt: "Classic Steel Rims - Side View" },
+      { src: modernTruckThree, alt: "Classic Steel Rims - Installed on Truck" }
     ],
     features: [
       "Authentic 90s design aesthetic",
@@ -46,7 +49,7 @@ const ProductOne = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <nav className="mb-8">
-          <Link to="/products" className="text-blue-600 hover:text-blue-800">
+          <Link to="/products" className="text-theme-600 hover:text-theme-800">
             ← Back to Products
           </Link>
         </nav>
@@ -78,19 +81,19 @@ const ProductOne = () => {
               <h3 className="text-xl font-semibold mb-4">Why Choose Classic Steel Rims?</h3>
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Timeless design that never goes out of style</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Superior durability for heavy-duty applications</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Perfect fitment for modern F-250 trucks</p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <span className="text-blue-600 text-xl">✓</span>
+                  <span className="text-theme-600 text-xl">✓</span>
                   <p className="text-gray-700">Easy maintenance and cleaning</p>
                 </div>
               </div>
